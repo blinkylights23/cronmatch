@@ -1,4 +1,5 @@
-const cronmatch = require('../lib/cronmatch');
+import cronmatch from '../src';
+import { expect } from 'chai';
 
 describe('The cron expression parser\'s', () => {
 

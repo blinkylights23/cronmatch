@@ -7,7 +7,7 @@ export default {
   output: {
     path: __dirname + '/dist',
     libraryTarget: 'umd',
-    library: 'cron-parser'
+    library: 'cronmatch'
   },
   module: {
     rules: [

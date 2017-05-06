@@ -6,7 +6,7 @@ function getRange(a, b) {
   return Array.apply(null, Array(b-a+1)).map((x, i) => i + a);
 }
 
-module.exports = function cronmatch(cronExpression, dateArg) {
+export default function cronmatch(cronExpression, dateArg) {
   var dateObj;
 
   // If passed a Date, use that, if passed a string, use to make a Date,

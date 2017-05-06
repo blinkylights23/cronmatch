@@ -84,12 +84,12 @@
     "sourceMap": false,
     "instrument": false
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
-  },
   "config": {
     "ghooks": {
       "pre-commit": "npm run test && npm run check-coverage"
+    },
+    "commitizen": {
+      "path": "cz-conventional-changelog"
     },
     "babel": {
       "presets": [

@@ -29,7 +29,7 @@
     "cover": "cross-env NODE_ENV=test nyc npm t",
     "test": "cross-env NODE_ENV=test mocha --require babel-register --compilers js:babel-register test/*.js",
     "test:watch": "cross-env NODE_ENV=test npm t -- -w",
-    "semantic-release": "cross-env NODE_ENV=production semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "cross-env NODE_ENV=production semantic-release pre && npm publish --access=public && semantic-release post"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

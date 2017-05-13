@@ -1,11 +1,38 @@
 import cronmatch from '../src';
+import getRange from '../src/getRange';
 import { expect } from 'chai';
+
+describe('The getRange function', () => {
+
+  it('should produce the correct range', () => {
+    let testRange = [1, 10];
+    let result = getRange(testRange[0], testRange[1]);
+    expect(result).to.be.an('array').of.length(10);
+    expect(result).to.eql([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  });
+  it('should tolerate out-of-order values', () => {
+    let testRange = [15, 10];
+    let result = getRange(testRange[0], testRange[1]);
+    expect(result).to.be.an('array').of.length(6);
+    expect(result).to.eql([10, 11, 12, 13, 14, 15]);
+  });
+
+});
 
 describe('The cron expression parser\'s', () => {
 
   describe('minutes field', () => {
     it('should correctly parse * * * * *', () => {
       let cronExpr = '* * * * *';
+      let date1 = new Date('January 20, 2020 12:00:00');
+      let date2 = new Date('January 20, 2020 12:01:00');
+      let date3 = new Date('January 20, 2020 12:13:00');
+      expect(cronmatch(cronExpr, date1)).to.be.true;
+      expect(cronmatch(cronExpr, date2)).to.be.true;
+      expect(cronmatch(cronExpr, date3)).to.be.true;
+    });
+    it('should correctly use a step of 1 for */0 * * * *', () => {
+      let cronExpr = '*/0 * * * *';
       let date1 = new Date('January 20, 2020 12:00:00');
       let date2 = new Date('January 20, 2020 12:01:00');
       let date3 = new Date('January 20, 2020 12:13:00');

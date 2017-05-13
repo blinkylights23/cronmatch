@@ -6,7 +6,7 @@ export default {
   },
   output: {
     path: __dirname + '/dist',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs2',
     library: 'cronmatch'
   },
   module: {
@@ -17,7 +17,7 @@ export default {
           loader: 'babel-loader',
           options: { 
             presets: [ 
-              [ "env", { "targets": { "browsers": ["last 2 versions", "ie >= 10"] } } ]
+              [ 'env', { 'targets': { 'browsers': ['last 2 versions', 'ie >= 10'] } } ]
             ]
           }
         }]

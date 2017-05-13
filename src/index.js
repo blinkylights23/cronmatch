@@ -1,14 +1,8 @@
+import getRange from './getRange';
 
 
-const getRange = (a, b) => {
-  a = parseInt(a);
-  b = parseInt(b);
-  return Array.from({ length: (b - a+1) }, (v, k) => k + a);
-  // return Array.apply(null, Array(b-a+1)).map((x, i) => i + a);
-};
-
-const stepInterval = (expr) => {
-};
+// const stepInterval = (expr) => {
+// };
 
 const fieldHit = (field) => {
   var range, step;
@@ -26,8 +20,21 @@ const fieldHit = (field) => {
     for (let i=parseInt(range[0]); i<=parseInt(range[1]); i+=step) {
       values.push(i);
     }
-  } else {}
+  } else {
+    let parts = field.expr.split(',');
+    parts.forEach((i) => {
+      if (i.indexOf('-') !== -1) {
+        let splitExpr = i.split('-');
+        getRange(splitExpr[0], splitExpr[1]).forEach((j) => {
+          values.push(j);
+        });
+      } else {
+        values.push(parseInt(i));
+      }
+    });
+  }
 
+  return values.indexOf(field.match) !== -1;
 };
 
 export default function cronmatch(cronExpression, dateArg) {
@@ -48,8 +55,6 @@ export default function cronmatch(cronExpression, dateArg) {
     return false;
   }
 
-  var match = true;
-
   var cronFields = cronExpression.split(' ');
   var cron = [
     { type: 'minute', expr: cronFields[0], range: [0, 59], match: dateObj.getMinutes() },
@@ -59,39 +64,5 @@ export default function cronmatch(cronExpression, dateArg) {
     { type: 'dayOfWeek', expr: cronFields[4], range: [0, 6], match: dateObj.getDay() }
   ];
 
-  var hit = cron.every(fieldHit);
-
-  cron.forEach((t) => {
-    var step, range;
-    let values = [];
-    if (t.expr == '?' || t.expr == '*') return;
-    if (t.expr.indexOf('/') !== -1) {
-      let parts = t.expr.split('/');
-      range = parts[0] == '*' ? t.range : parts[0];
-      range = typeof(range) == 'string' ? range.split('-') : range;
-      step = parseInt(parts[1]) || 1;
-      for (let i=parseInt(range[0]); i<=parseInt(range[1]); i+=step) {
-        values.push(i);
-      }
-    } else {
-      let parts = t.expr.split(',');
-      parts.forEach((i) => {
-        if (i.indexOf('-') !== -1) {
-          let splitExpr = i.split('-');
-          getRange(splitExpr[0], splitExpr[1]).forEach((j) => {
-            values.push(j);
-          });
-        } else {
-          values.push(parseInt(i));
-        }
-      });
-    }
-    // console.log(values);
-    if (values.indexOf(t.match) == -1) {
-      match = false;
-    }
-  });
-
-
-  return match;
+  return cron.every(fieldHit);
 }

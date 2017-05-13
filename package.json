@@ -5,6 +5,9 @@
   "main": "dist/index.js",
   "author": "Paul Smith <paul@paulsmith.io> (http://paulsmith.io/)",
   "license": "MIT",
+  "files": [
+    "dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/blinkylights23/cronmatch"

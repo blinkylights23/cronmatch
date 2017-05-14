@@ -66,3 +66,4 @@ export default function cronmatch(cronExpression, dateArg) {
 
   return cron.every(fieldHit);
 }
+

@@ -6,7 +6,7 @@ export default {
   },
   output: {
     path: __dirname + '/dist',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd',
     library: 'cronmatch'
   },
   module: {
@@ -15,9 +15,13 @@ export default {
         test: /\.js$/,
         use: [{
           loader: 'babel-loader',
-          options: { 
+          options: {
             presets: [ 
               [ 'env', { 'targets': { 'browsers': ['last 2 versions', 'ie >= 10'] } } ]
+            ],
+            plugins: [
+              'add-module-exports',
+              'transform-es2015-modules-umd'
             ]
           }
         }]

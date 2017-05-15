@@ -1,9 +1,5 @@
 import getRange from './getRange';
 
-
-// const stepInterval = (expr) => {
-// };
-
 const fieldHit = (field) => {
   var range, step;
   var values = [];

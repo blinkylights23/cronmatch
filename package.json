@@ -1,6 +1,6 @@
 {
   "name": "@paulsmith/cronmatch",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A simple cron expression parser. Compares a given date to a cron expression to see if it matches. BYOT(imer).",
   "author": "Paul Smith <paul@paulsmith.io> (http://paulsmith.io/)",
   "license": "MIT",

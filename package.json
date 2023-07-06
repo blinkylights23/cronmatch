@@ -4,9 +4,9 @@
   "description": "A simple cron expression parser. Compares a given date to a cron expression to see if it matches. BYOT(imer).",
   "author": "Paul Smith <paul@paulsmith.io> (http://paulsmith.io/)",
   "license": "MIT",
-  "files": [
-    "dist/"
-  ],
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/blinkylights23/cronmatch"
@@ -25,7 +25,12 @@
     "build": "npm-run-all --parallel build:*"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.6",
+    "@babel/preset-env": "^7.22.6",
+    "babel-jest": "^29.6.0",
+    "jest": "^29.6.0",
     "npm-run-all": "^4.0.2",
+    "parcel": "^2.9.3",
     "rimraf": "^5.0.1"
   },
   "engines": {}

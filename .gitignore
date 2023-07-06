@@ -10,10 +10,10 @@ npm-debug.log*
 # Dependency directories
 node_modules
 coverage
-.nyc_output
 
 # Optional npm cache directory
 .npm
+.parcel-cache
 
 # Optional REPL history
 .node_repl_history

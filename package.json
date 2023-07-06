@@ -22,7 +22,8 @@
   "homepage": "https://github.com/blinkylights23/cronmatch",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "npm-run-all --parallel build:*"
+    "build": "npm-run-all --parallel build:*",
+    "test": "jest --coverage --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.22.6",

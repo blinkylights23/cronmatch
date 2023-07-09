@@ -5,14 +5,15 @@
   "author": "Paul Smith <paul@paulsmith.io> (http://paulsmith.io/)",
   "license": "MIT",
   "source": "src/index.js",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/cronmatch.js",
+  "module": "dist/cronmatch.mjs",
   "repository": {
     "type": "git",
     "url": "https://github.com/blinkylights23/cronmatch"
   },
   "keywords": [
     "cron",
+    "crontab",
     "cron-expression",
     "cron-expression-parser"
   ],
@@ -23,11 +24,14 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "npm-run-all --parallel build:*",
+    "build:esm": "parcel build src/index.js --dist-dir dist --target module",
+    "build:cjs": "parcel build src/index.js --dist-dir dist --target main",
     "test": "jest --coverage --verbose"
   },
   "devDependencies": {
     "@babel/core": "^7.22.6",
     "@babel/eslint-parser": "^7.22.7",
+    "@babel/eslint-plugin": "^7.22.5",
     "@babel/preset-env": "^7.22.6",
     "babel-jest": "^29.6.0",
     "eslint": "^8.44.0",
@@ -43,8 +47,5 @@
     "prettier": "^3.0.0",
     "rimraf": "^5.0.1"
   },
-  "engines": {},
-  "dependencies": {
-    "@babel/eslint-plugin": "^7.22.5"
-  }
+  "engines": {}
 }

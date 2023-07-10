@@ -1,9 +1,8 @@
-
 export default (a, b) => {
-  a = parseInt(a);
-  b = parseInt(b);
-  if (a > b) {
-    [a, b] = [b, a];
+  let aInt = parseInt(a, 10)
+  let bInt = parseInt(b, 10)
+  if (aInt > bInt) {
+    ;[aInt, bInt] = [bInt, aInt]
   }
-  return Array.from({ length: (b - a+1) }, (v, k) => k + a);
-};
+  return Array.from({ length: bInt - aInt + 1 }, (v, k) => k + aInt)
+}

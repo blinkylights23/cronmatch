@@ -11,7 +11,7 @@ npm install @paulsmith/cronmatch
 
 For use in the browser:
 ```
-<script src="https://unpkg.com/@paulsmith/cronmatch/dist/cronmatch.min.js"></script>
+<script src="https://unpkg.com/@paulsmith/cronmatch/dist/cronmatch.js"></script>
 ```
 
 ## Usage

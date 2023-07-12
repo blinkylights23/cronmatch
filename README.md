@@ -1,5 +1,12 @@
 # cronmatch
 
+![npm (scoped)](https://img.shields.io/npm/v/%40paulsmith/cronmatch)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/blinkylights23/cronmatch/node.js.yml)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/%40paulsmith%2Fcronmatch)
+![npms.io (maintenance)](https://img.shields.io/npms-io/maintenance-score/%40paulsmith/cronmatch)
+![npms.io (maintenance)](https://img.shields.io/npms-io/quality-score/%40paulsmith/cronmatch)
+
+
 `Cronmatch` is a simple cron expression parser. It compares a provided date string or `Date` object with a cron expression to see if it matches.
 
 ## Installation

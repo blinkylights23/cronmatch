@@ -49,3 +49,5 @@ dayOfWeek: [0, 6]
 * `cronmatch` does not yet understand 6-field cron expressions with seconds
 * It does not yet validate cron expressions
 * Does not yet support JAN-DEC for month or MON-SUN for dayOfWeek
+* Does not yet support shortcuts such as `@weekly`, `@monthly`, etc.
+* `cronmatch` does not provide any time/date functionality. You probably _do_ want to be careful about timezones when using `cronmatch` to check whether a datetime matches a cron expression, but you probably don't want your expression parser to be where that happens. ;) 
